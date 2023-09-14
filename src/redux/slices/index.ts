@@ -1,1 +1,1 @@
-export * from './addedBlocks';
+export * from './addedBlocksSlice';

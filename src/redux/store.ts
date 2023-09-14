@@ -8,6 +8,6 @@ const store = configureStore({
   },
 });
 
-export const { addBlock } = addedBlocksSlice.actions;
+export const { addBlockToSlice } = addedBlocksSlice.actions;
 
 export { store };

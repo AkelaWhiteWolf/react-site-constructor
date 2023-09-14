@@ -1,18 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { AddBlockInterface, BlockContentType, BlockType } from 'src/types';
-
-type BlocksType = {
-  id: number;
-  type: BlockType;
-  content: BlockContentType;
-}[];
+import { AddBlockInterface, BlockSliceType } from 'src/types';
 
 export const addedBlocksSlice = createSlice({
   name: 'addedBlocksSlice',
-  initialState: { availableId: 1, blocks: [] as BlocksType },
+  initialState: { availableId: 1, blocks: [] as BlockSliceType[] },
   reducers: {
-    addBlock(state, action: PayloadAction<AddBlockInterface>) {
+    addBlockToSlice(state, action: PayloadAction<AddBlockInterface>) {
       state.blocks.push({
         id: state.availableId,
         ...action.payload,

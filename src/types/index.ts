@@ -1,3 +1,3 @@
-export * from './block';
-export * from './blockContent';
-export * from './addBlock';
+export * from './possibleBlockType';
+export * from './addBlockInterface';
+export * from './blockSliceType';
