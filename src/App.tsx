@@ -1,9 +1,16 @@
 import React from 'react';
 
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, SimpleGrid } from '@chakra-ui/react';
+import { ChooseBlockContainer } from 'src/components';
 
 function App() {
-  return <ChakraProvider></ChakraProvider>;
+  return (
+    <ChakraProvider>
+      <SimpleGrid columns={3}>
+        <ChooseBlockContainer />
+      </SimpleGrid>
+    </ChakraProvider>
+  );
 }
 
 export default App;
