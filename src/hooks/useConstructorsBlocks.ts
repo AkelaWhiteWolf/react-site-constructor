@@ -1,8 +1,8 @@
 import { useAppSelector, useAppDispatch } from 'src/hooks';
 
-import { addBlockToSlice } from 'src/redux';
+import { addBlockToSlice, updateBlockContentInSlice } from 'src/redux';
 
-import { AddBlockInterface } from 'src/types';
+import { AddBlockInterface, UpdateBlockInterface } from 'src/types';
 
 export function useConstructorsBlocks() {
   const dispatch = useAppDispatch();
@@ -13,5 +13,9 @@ export function useConstructorsBlocks() {
     dispatch(addBlockToSlice(blockData));
   }
 
-  return { blocksData, addBlock };
+  function updateBlockContent(updateData: UpdateBlockInterface) {
+    dispatch(updateBlockContentInSlice(updateData));
+  }
+
+  return { blocksData, addBlock, updateBlockContent };
 }

@@ -10,7 +10,7 @@ import {
 
 export function ChooseBlockContainer() {
   return (
-    <SimpleGrid templateColumns="100px 100px" gap="20px">
+    <SimpleGrid templateColumns="100px 100px" autoRows="85px" gap="20px">
       <HeadlineBlockToChoose />
       <ParagraphBlockToChoose />
       <ImageBlockToChoose />

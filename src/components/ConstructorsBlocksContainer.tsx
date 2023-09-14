@@ -1,15 +1,18 @@
 import React from 'react';
-import { VStack } from '@chakra-ui/react';
+import { Box, VStack } from '@chakra-ui/react';
 
+import { ConstructorsBlock } from 'src/components';
 import { useConstructorsBlocks } from 'src/hooks/useConstructorsBlocks';
 
 export function ConstructorsBlocksContainer() {
   const { blocksData } = useConstructorsBlocks();
   return (
-    <VStack>
-      {blocksData.map(block => (
-        <p key={block.id}>{block.content}</p>
-      ))}
-    </VStack>
+    <Box bg="lightgrey">
+      <VStack>
+        {blocksData.map(block => (
+          <ConstructorsBlock key={block.id} id={block.id} type={block.type} />
+        ))}
+      </VStack>
+    </Box>
   );
 }

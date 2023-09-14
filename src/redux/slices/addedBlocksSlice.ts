@@ -1,6 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { AddBlockInterface, BlockSliceType } from 'src/types';
+import {
+  AddBlockInterface,
+  BlockSliceType,
+  UpdateBlockInterface,
+} from 'src/types';
 
 export const addedBlocksSlice = createSlice({
   name: 'addedBlocksSlice',
@@ -13,6 +17,17 @@ export const addedBlocksSlice = createSlice({
       });
 
       state.availableId++;
+    },
+
+    updateBlockContentInSlice(
+      state,
+      action: PayloadAction<UpdateBlockInterface>,
+    ) {
+      const choosedBlock = state.blocks.find(
+        block => block.id === action.payload.id,
+      );
+
+      if (choosedBlock) choosedBlock.content = action.payload.content;
     },
   },
 });

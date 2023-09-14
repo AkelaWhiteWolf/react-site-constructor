@@ -14,7 +14,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Provider store={store}>
-        <SimpleGrid columns={3}>
+        <SimpleGrid templateColumns="20% 1fr 1fr">
           <ChooseBlockContainer />
           <ConstructorsBlocksContainer />
         </SimpleGrid>
