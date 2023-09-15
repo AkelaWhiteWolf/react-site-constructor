@@ -21,6 +21,10 @@ export interface MoveBlockInterface {
   newPositionIndex: number;
 }
 
+export interface CopyBlockInterface {
+  id: BlockSliceType['id'];
+}
+
 export interface DeleteBlockInterface {
   id: BlockSliceType['id'];
 }

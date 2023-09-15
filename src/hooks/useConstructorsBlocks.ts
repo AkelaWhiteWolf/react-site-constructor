@@ -5,6 +5,7 @@ import {
   moveBlockInSlice,
   updateBlockContentInSlice,
   deleteBlockFromSlice,
+  copyBlockInSlice,
 } from 'src/redux';
 
 import {
@@ -41,5 +42,16 @@ export function useConstructorsBlocks() {
     dispatch(deleteBlockFromSlice({ id }));
   }
 
-  return { blocksData, addBlock, updateBlockContent, moveBlock, deleteBlock };
+  function copyBlock(id: BlockSliceType['id']) {
+    dispatch(copyBlockInSlice({ id }));
+  }
+
+  return {
+    blocksData,
+    addBlock,
+    updateBlockContent,
+    moveBlock,
+    copyBlock,
+    deleteBlock,
+  };
 }

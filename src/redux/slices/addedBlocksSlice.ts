@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   AddBlockInterface,
   BlockSliceType,
+  CopyBlockInterface,
   DeleteBlockInterface,
   MoveBlockInterface,
   UpdateBlockInterface,
@@ -40,6 +41,17 @@ export const addedBlocksSlice = createSlice({
     ) {
       const carvedBlock = state.blocks.splice(carvedBlockIndex, 1);
       state.blocks.splice(newPositionIndex, 0, ...carvedBlock);
+    },
+
+    copyBlockInSlice(
+      state,
+      { payload: { id } }: PayloadAction<CopyBlockInterface>,
+    ) {
+      const copiedBlock = state.blocks.find(block => block.id === id);
+      const copiedBlockIndex = state.blocks.findIndex(block => block.id === id);
+
+      if (copiedBlock && copiedBlockIndex !== -1)
+        state.blocks.splice(copiedBlockIndex, 0, copiedBlock);
     },
 
     deleteBlockFromSlice(

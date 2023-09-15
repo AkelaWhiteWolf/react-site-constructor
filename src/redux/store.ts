@@ -12,6 +12,7 @@ export const {
   addBlockToSlice,
   updateBlockContentInSlice,
   moveBlockInSlice,
+  copyBlockInSlice,
   deleteBlockFromSlice,
 } = addedBlocksSlice.actions;
 
