@@ -3,10 +3,10 @@ import { Box, Text } from '@chakra-ui/react';
 
 import { ConstructorsBlockInput } from 'src/components';
 import { getIconByBlocksType, getTextWithCapitalLetter } from 'src/utils';
-import { PossibleBlockType } from 'src/types';
+import { BlockSliceType, PossibleBlockType } from 'src/types';
 
 interface IProps {
-  id: number;
+  id: BlockSliceType['id'];
   type: PossibleBlockType;
   // content: string;
   // children: ReactNode;

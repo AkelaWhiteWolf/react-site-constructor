@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useMemo } from 'react';
 import { Input, Textarea } from '@chakra-ui/react';
 import { useConstructorsBlocks } from 'src/hooks';
-import { PossibleBlockType } from 'src/types';
+import { BlockSliceType, PossibleBlockType } from 'src/types';
 
 interface IProps {
-  id: number;
+  id: BlockSliceType['id'];
   type: PossibleBlockType;
 }
 

@@ -12,6 +12,6 @@ export interface AddBlockInterface {
 }
 
 export interface UpdateBlockInterface {
-  id: number;
+  id: BlockSliceType['id'];
   content: string;
 }
