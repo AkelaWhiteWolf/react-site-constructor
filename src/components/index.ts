@@ -9,3 +9,4 @@ export * from './ButtonBlockToChoose';
 export * from './ConstructorsBlockInput';
 export * from './RenderBlocksContainer';
 export * from './RenderBlock';
+export * from './ConstructorsBlockControlPanel';

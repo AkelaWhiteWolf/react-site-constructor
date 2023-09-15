@@ -1,7 +1,10 @@
 import React, { useMemo } from 'react';
 import { Box, Text } from '@chakra-ui/react';
 
-import { ConstructorsBlockInput } from 'src/components';
+import {
+  ConstructorsBlockControlPanel,
+  ConstructorsBlockInput,
+} from 'src/components';
 import { getIconByBlocksType, getTextWithCapitalLetter } from 'src/utils';
 import { BlockSliceType, PossibleBlockType } from 'src/types';
 
@@ -22,11 +25,13 @@ export const ConstructorsBlock: React.FC<IProps> = ({
   const typeText = useMemo(() => getTextWithCapitalLetter(type), [type]);
 
   return (
-    <Box bg="white" w="100%">
+    <Box bg="white" w="100%" position="relative">
       <Icon />
       <Text>{typeText}</Text>
 
       <ConstructorsBlockInput id={id} type={type} />
+
+      <ConstructorsBlockControlPanel id={id} />
     </Box>
   );
 };
