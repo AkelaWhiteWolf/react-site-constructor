@@ -8,6 +8,7 @@ import {
   MoveBlockInterface,
   UpdateBlockInterface,
 } from 'src/types';
+import { getObjectDeepCopy } from 'src/utils';
 
 export const addedBlocksSlice = createSlice({
   name: 'addedBlocksSlice',
@@ -47,11 +48,15 @@ export const addedBlocksSlice = createSlice({
       state,
       { payload: { id } }: PayloadAction<CopyBlockInterface>,
     ) {
-      const copiedBlock = state.blocks.find(block => block.id === id);
+      const copiedBlock = getObjectDeepCopy(
+        state.blocks.find(block => block.id === id),
+      );
       const copiedBlockIndex = state.blocks.findIndex(block => block.id === id);
 
-      if (copiedBlock && copiedBlockIndex !== -1)
+      if (copiedBlock && copiedBlockIndex !== -1) {
+        copiedBlock.id = state.availableId++;
         state.blocks.splice(copiedBlockIndex, 0, copiedBlock);
+      }
     },
 
     deleteBlockFromSlice(
