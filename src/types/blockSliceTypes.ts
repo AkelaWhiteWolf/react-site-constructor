@@ -20,3 +20,7 @@ export interface MoveBlockInterface {
   carvedBlockIndex: number;
   newPositionIndex: number;
 }
+
+export interface DeleteBlockInterface {
+  id: BlockSliceType['id'];
+}

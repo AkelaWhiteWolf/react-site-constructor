@@ -4,6 +4,7 @@ import {
   addBlockToSlice,
   moveBlockInSlice,
   updateBlockContentInSlice,
+  deleteBlockFromSlice,
 } from 'src/redux';
 
 import {
@@ -36,5 +37,9 @@ export function useConstructorsBlocks() {
       dispatch(moveBlockInSlice({ carvedBlockIndex, newPositionIndex }));
   }
 
-  return { blocksData, addBlock, updateBlockContent, moveBlock };
+  function deleteBlock(id: BlockSliceType['id']) {
+    dispatch(deleteBlockFromSlice({ id }));
+  }
+
+  return { blocksData, addBlock, updateBlockContent, moveBlock, deleteBlock };
 }

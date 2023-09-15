@@ -8,8 +8,12 @@ const store = configureStore({
   },
 });
 
-export const { addBlockToSlice, updateBlockContentInSlice, moveBlockInSlice } =
-  addedBlocksSlice.actions;
+export const {
+  addBlockToSlice,
+  updateBlockContentInSlice,
+  moveBlockInSlice,
+  deleteBlockFromSlice,
+} = addedBlocksSlice.actions;
 
 export { store };
 
