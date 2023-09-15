@@ -15,3 +15,8 @@ export interface UpdateBlockInterface {
   id: BlockSliceType['id'];
   content: string;
 }
+
+export interface MoveBlockInterface {
+  carvedBlockIndex: number;
+  newPositionIndex: number;
+}

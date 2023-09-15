@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   AddBlockInterface,
   BlockSliceType,
+  MoveBlockInterface,
   UpdateBlockInterface,
 } from 'src/types';
 
@@ -28,6 +29,16 @@ export const addedBlocksSlice = createSlice({
       );
 
       if (choosedBlock) choosedBlock.content = action.payload.content;
+    },
+
+    moveBlockInSlice(
+      state,
+      {
+        payload: { carvedBlockIndex, newPositionIndex },
+      }: PayloadAction<MoveBlockInterface>,
+    ) {
+      const carvedBlock = state.blocks.splice(carvedBlockIndex, 1);
+      state.blocks.splice(newPositionIndex, 0, ...carvedBlock);
     },
   },
 });
