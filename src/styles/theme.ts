@@ -15,5 +15,6 @@ export const theme = extendTheme({
       dark: '#4B97B8',
     },
     lightgrey: '#D9E7FF',
+    bluegrey: '#97AACD',
   },
 });

@@ -26,7 +26,7 @@ export const ConstructorsBlock: React.FC<IProps> = ({
       <Icon />
       <Text>{typeText}</Text>
 
-      <ConstructorsBlockInput id={id} />
+      <ConstructorsBlockInput id={id} type={type} />
     </Box>
   );
 };

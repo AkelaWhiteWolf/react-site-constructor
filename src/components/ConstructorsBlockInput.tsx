@@ -1,12 +1,14 @@
 import React, { ChangeEvent, useMemo } from 'react';
-import { Textarea } from '@chakra-ui/react';
+import { Input, Textarea } from '@chakra-ui/react';
 import { useConstructorsBlocks } from 'src/hooks';
+import { PossibleBlockType } from 'src/types';
 
 interface IProps {
   id: number;
+  type: PossibleBlockType;
 }
 
-export const ConstructorsBlockInput: React.FC<IProps> = ({ id }) => {
+export const ConstructorsBlockInput: React.FC<IProps> = ({ id, type }) => {
   const { updateBlockContent, blocksData } = useConstructorsBlocks();
 
   const currentBlockData = useMemo(
@@ -14,14 +16,18 @@ export const ConstructorsBlockInput: React.FC<IProps> = ({ id }) => {
     [],
   );
 
-  function handleUpdateBlock(event: ChangeEvent<HTMLTextAreaElement>) {
+  const isBlockTypeParagraph = type === 'paragraph';
+  const props = {
+    defaultValue: currentBlockData?.content,
+    onInput: handleUpdateBlock,
+    size: isBlockTypeParagraph ? 'xs' : undefined,
+  };
+
+  function handleUpdateBlock(
+    event: ChangeEvent<HTMLTextAreaElement & HTMLInputElement>,
+  ) {
     updateBlockContent({ id, content: event.target.value });
   }
 
-  return (
-    <Textarea
-      defaultValue={currentBlockData?.content}
-      onInput={handleUpdateBlock}
-    />
-  );
+  return isBlockTypeParagraph ? <Textarea {...props} /> : <Input {...props} />;
 };

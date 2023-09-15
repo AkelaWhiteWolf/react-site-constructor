@@ -5,10 +5,11 @@ import { ChakraProvider, SimpleGrid } from '@chakra-ui/react';
 import {
   ConstructorsBlocksContainer,
   ChooseBlockContainer,
+  RenderBlocksContainer,
 } from 'src/components';
 import { store } from 'src/redux';
 
-import { theme } from './styles';
+import { theme } from 'src/styles';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <SimpleGrid templateColumns="20% 1fr 1fr">
           <ChooseBlockContainer />
           <ConstructorsBlocksContainer />
+          <RenderBlocksContainer />
         </SimpleGrid>
       </Provider>
     </ChakraProvider>

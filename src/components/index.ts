@@ -7,3 +7,5 @@ export * from './ParagraphBlockToChoose';
 export * from './ImageBlockToChoose';
 export * from './ButtonBlockToChoose';
 export * from './ConstructorsBlockInput';
+export * from './RenderBlocksContainer';
+export * from './RenderBlock';
