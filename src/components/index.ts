@@ -10,3 +10,4 @@ export * from './ConstructorsBlockInput';
 export * from './RenderBlocksContainer';
 export * from './RenderBlock';
 export * from './ConstructorsBlockControlPanel';
+export * from './ImageFallback';

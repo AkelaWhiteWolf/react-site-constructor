@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, HStack, Image, Text } from '@chakra-ui/react';
-import { AlertIcon } from 'src/icons';
+import { Button, Image, Text } from '@chakra-ui/react';
+import { ImageFallback } from 'src/components';
 import { PossibleBlockType } from 'src/types';
 
 interface Props {
@@ -12,18 +12,14 @@ export const RenderBlock: React.FC<Props> = ({ type, content }) => {
   // FIXME: may be it's better to create personal components for every type for reusing it.
 
   const RenderBlockImage = () => {
-    return content ? (
+    return (
       <Image
         src={content}
         alt="image of rendered block"
         maxW="400px"
         maxH="400px"
+        fallback={<ImageFallback />}
       />
-    ) : (
-      <HStack gap="10px">
-        <AlertIcon />
-        <Text>Can't show Image...</Text>
-      </HStack>
     );
   };
 
