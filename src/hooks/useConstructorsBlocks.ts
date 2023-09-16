@@ -52,6 +52,21 @@ export function useConstructorsBlocks() {
     dispatch(copyBlockInSlice({ id }));
   }
 
+  function checkCanMoveBlock(
+    id: BlockSliceType['id'],
+    direction: MoveBlockDirectionType,
+  ) {
+    const choosedBlockIndex = blocksData.findIndex(block => block.id === id);
+
+    if (choosedBlockIndex !== -1) {
+      return direction === 'up'
+        ? choosedBlockIndex > 0
+        : choosedBlockIndex < blocksData.length - 1;
+    } else {
+      console.error('No this block in Redux');
+    }
+  }
+
   return {
     blocksData,
     addBlock,
@@ -59,5 +74,6 @@ export function useConstructorsBlocks() {
     moveBlock,
     copyBlock,
     deleteBlock,
+    checkCanMoveBlock,
   };
 }

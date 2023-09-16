@@ -8,6 +8,7 @@ interface IconButtonProps {
   onClick: () => void;
   children: ReactNode;
   bgColor?: 'string';
+  isDisabled?: boolean;
 }
 interface Props {
   id: BlockSliceType['id'];
@@ -18,6 +19,7 @@ const ICON_BUTTON_SIZE = '25px';
 const IconButton: React.FC<IconButtonProps> = ({
   bgColor = 'blue.medium',
   onClick,
+  isDisabled,
   children,
 }) => {
   return (
@@ -28,6 +30,7 @@ const IconButton: React.FC<IconButtonProps> = ({
       w={ICON_BUTTON_SIZE}
       h={ICON_BUTTON_SIZE}
       onClick={onClick}
+      isDisabled={isDisabled}
     >
       {children}
     </Button>
@@ -35,7 +38,8 @@ const IconButton: React.FC<IconButtonProps> = ({
 };
 
 export const ConstructorsBlockControlPanel: React.FC<Props> = ({ id }) => {
-  const { moveBlock, copyBlock, deleteBlock } = useConstructorsBlocks();
+  const { moveBlock, copyBlock, deleteBlock, checkCanMoveBlock } =
+    useConstructorsBlocks();
 
   function handleMoveBlock(direction: MoveBlockDirectionType) {
     return () => moveBlock(id, direction);
@@ -56,10 +60,16 @@ export const ConstructorsBlockControlPanel: React.FC<Props> = ({ id }) => {
       top={ICON_BUTTON_SIZE}
     >
       <HStack gap={0}>
-        <IconButton onClick={handleMoveBlock('down')}>
+        <IconButton
+          onClick={handleMoveBlock('down')}
+          isDisabled={!checkCanMoveBlock(id, 'down')}
+        >
           <ArrowIcon direction="down" />
         </IconButton>
-        <IconButton onClick={handleMoveBlock('up')}>
+        <IconButton
+          onClick={handleMoveBlock('up')}
+          isDisabled={!checkCanMoveBlock(id, 'up')}
+        >
           <ArrowIcon direction="up" />
         </IconButton>
       </HStack>
