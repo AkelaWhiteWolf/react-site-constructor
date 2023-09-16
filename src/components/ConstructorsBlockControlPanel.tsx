@@ -57,7 +57,7 @@ export const ConstructorsBlockControlPanel: React.FC<Props> = ({ id }) => {
       height={ICON_BUTTON_SIZE}
       position="absolute"
       right="0"
-      top={ICON_BUTTON_SIZE}
+      top={`-${ICON_BUTTON_SIZE}`}
     >
       <HStack gap={0}>
         <IconButton

@@ -7,12 +7,10 @@ import { useConstructorsBlocks } from 'src/hooks';
 export function ConstructorsBlocksContainer() {
   const { blocksData } = useConstructorsBlocks();
   return (
-    <Box bg="lightgrey">
-      <VStack>
-        {blocksData.map(block => (
-          <ConstructorsBlock key={block.id} id={block.id} type={block.type} />
-        ))}
-      </VStack>
-    </Box>
+    <VStack bg="lightgrey" p="40px" gap="20px">
+      {blocksData.map(block => (
+        <ConstructorsBlock key={block.id} id={block.id} type={block.type} />
+      ))}
+    </VStack>
   );
 }

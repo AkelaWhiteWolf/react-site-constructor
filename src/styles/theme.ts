@@ -4,7 +4,7 @@ export const theme = extendTheme({
   colors: {
     lightblue: {
       light: '#F6F9FE',
-      medium: '#F5F5FC',
+      medium: '#D9E7FF',
     },
     blue: {
       light: '#449CF4',
@@ -14,7 +14,7 @@ export const theme = extendTheme({
       medium: '#68C2E9',
       dark: '#4B97B8',
     },
-    lightgrey: '#D9E7FF',
+    lightgrey: '#F5F5FC',
     bluegrey: '#97AACD',
   },
 });

@@ -28,6 +28,7 @@ export const ConstructorsBlock: React.FC<IProps> = ({ id, type }) => {
   return (
     <VStack
       bg="white"
+      borderRadius="10px"
       w="100%"
       p="15px"
       gap="15px"
