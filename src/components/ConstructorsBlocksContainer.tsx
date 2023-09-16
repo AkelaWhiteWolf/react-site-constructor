@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, VStack } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 
 import { ConstructorsBlock } from 'src/components';
 import { useConstructorsBlocks } from 'src/hooks';

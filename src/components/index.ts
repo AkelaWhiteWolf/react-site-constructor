@@ -11,3 +11,4 @@ export * from './RenderBlocksContainer';
 export * from './RenderBlock';
 export * from './ConstructorsBlockControlPanel';
 export * from './ImageFallback';
+export * from './MainPage';
