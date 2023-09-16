@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { Box, Text } from '@chakra-ui/react';
+import React, { useMemo, useState } from 'react';
+import { Text, VStack } from '@chakra-ui/react';
 
 import {
   ConstructorsBlockControlPanel,
@@ -11,27 +11,36 @@ import { BlockSliceType, PossibleBlockType } from 'src/types';
 interface IProps {
   id: BlockSliceType['id'];
   type: PossibleBlockType;
-  // content: string;
-  // children: ReactNode;
 }
 
-export const ConstructorsBlock: React.FC<IProps> = ({
-  id,
-  type,
-  // content,
-  // children,
-}) => {
+export const ConstructorsBlock: React.FC<IProps> = ({ id, type }) => {
+  const [isPointerEnter, setIsPointerEnter] = useState(false);
   const Icon = useMemo(() => getIconByBlocksType(type), [type]);
   const typeText = useMemo(() => getTextWithCapitalLetter(type), [type]);
 
+  function handlePointEnter() {
+    setIsPointerEnter(true);
+  }
+  function handlePointLeave() {
+    setIsPointerEnter(false);
+  }
+
   return (
-    <Box bg="white" w="100%" position="relative">
+    <VStack
+      bg="white"
+      w="100%"
+      p="15px"
+      gap="15px"
+      position="relative"
+      onPointerEnter={handlePointEnter}
+      onPointerLeave={handlePointLeave}
+    >
       <Icon />
       <Text>{typeText}</Text>
 
       <ConstructorsBlockInput id={id} type={type} />
 
-      <ConstructorsBlockControlPanel id={id} />
-    </Box>
+      {isPointerEnter && <ConstructorsBlockControlPanel id={id} />}
+    </VStack>
   );
 };
