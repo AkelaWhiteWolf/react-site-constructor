@@ -11,14 +11,20 @@ interface IProps {
   children: ReactNode;
 }
 
-export const BlockToChoose: React.FC<IProps> = ({ type, children }) => {
+export const ChooseBlock: React.FC<IProps> = ({ type, children }) => {
   const typeText = useMemo(() => getTextWithCapitalLetter(type), [type]);
   const { addBlock } = useConstructorsBlocks();
 
   const handleAddBlock = () => addBlock({ type, content: '' });
 
   return (
-    <Box bg="lightblue.light" padding="15px 10px" onClick={handleAddBlock}>
+    <Box
+      bg="lightblue.light"
+      padding="15px 10px"
+      borderRadius="10px"
+      _hover={{ bg: 'lightblue.medium', cursor: 'pointer' }}
+      onClick={handleAddBlock}
+    >
       <VStack>
         {children}
         <Text>{typeText}</Text>

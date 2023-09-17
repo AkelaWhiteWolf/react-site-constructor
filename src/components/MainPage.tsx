@@ -1,7 +1,7 @@
 import React from 'react';
 import { SimpleGrid } from '@chakra-ui/react';
 import {
-  ChooseBlockContainer,
+  ChooseBlocksContainer,
   ConstructorsBlocksContainer,
   RenderBlocksContainer,
 } from 'src/components';
@@ -9,7 +9,7 @@ import {
 export const MainPage = () => {
   return (
     <SimpleGrid templateColumns="20% 1fr 1fr" pt="30px">
-      <ChooseBlockContainer />
+      <ChooseBlocksContainer />
       <ConstructorsBlocksContainer />
       <RenderBlocksContainer />
     </SimpleGrid>

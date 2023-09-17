@@ -2,13 +2,13 @@ import React from 'react';
 import { SimpleGrid } from '@chakra-ui/react';
 
 import {
-  ButtonBlockToChoose,
-  HeadlineBlockToChoose,
-  ImageBlockToChoose,
-  ParagraphBlockToChoose,
+  ChooseBlockButton,
+  ChooseBlockHeadline,
+  ChooseBlockImage,
+  ChooseBlockParagraph,
 } from 'src/components';
 
-export function ChooseBlockContainer() {
+export function ChooseBlocksContainer() {
   return (
     <SimpleGrid
       templateColumns="100px 100px"
@@ -16,10 +16,10 @@ export function ChooseBlockContainer() {
       autoRows="85px"
       gap="20px"
     >
-      <HeadlineBlockToChoose />
-      <ParagraphBlockToChoose />
-      <ImageBlockToChoose />
-      <ButtonBlockToChoose />
+      <ChooseBlockHeadline />
+      <ChooseBlockParagraph />
+      <ChooseBlockImage />
+      <ChooseBlockButton />
     </SimpleGrid>
   );
 }
