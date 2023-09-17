@@ -16,8 +16,8 @@ export const RenderBlock: React.FC<Props> = ({ type, content }) => {
       <Image
         src={content}
         alt="image of rendered block"
-        maxW="400px"
-        maxH="400px"
+        maxW="500px"
+        maxH="500px"
         fallback={<ImageFallback />}
       />
     );
