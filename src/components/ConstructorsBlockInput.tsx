@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useMemo } from 'react';
 import { Input, Textarea } from '@chakra-ui/react';
+import { ConstructorsBlockImageUploader } from 'src/components';
 import { useConstructorsBlocks } from 'src/hooks';
 import { BlockSliceType, PossibleBlockType } from 'src/types';
 
@@ -27,6 +28,18 @@ export const ConstructorsBlockInput: React.FC<IProps> = ({ id, type }) => {
     event: ChangeEvent<HTMLTextAreaElement & HTMLInputElement>,
   ) {
     updateBlockContent({ id, content: event.target.value });
+  }
+
+  switch (type) {
+    case 'paragraph':
+      return <Textarea {...attributes} />;
+    case 'image':
+      return (
+        <>
+          <Input {...attributes} />
+          <ConstructorsBlockImageUploader id={id} />
+        </>
+      );
   }
 
   return isBlockTypeParagraph ? (
