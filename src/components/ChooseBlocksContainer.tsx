@@ -15,6 +15,9 @@ export function ChooseBlocksContainer() {
       justifyContent="center"
       autoRows="85px"
       gap="20px"
+      padding="40px"
+      borderTop="1px solid lightgrey"
+      borderRight="1px solid lightgrey"
     >
       <ChooseBlockHeadline />
       <ChooseBlockParagraph />
