@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Text, VStack } from '@chakra-ui/react';
+import { Text, VStack, Fade } from '@chakra-ui/react';
 
 import {
   ConstructorsBlockControlPanel,
@@ -41,7 +41,9 @@ export const ConstructorsBlock: React.FC<IProps> = ({ id, type }) => {
 
       <ConstructorsBlockInput id={id} type={type} />
 
-      {isPointerEnter && <ConstructorsBlockControlPanel id={id} />}
+      <Fade in={isPointerEnter}>
+        <ConstructorsBlockControlPanel id={id} />
+      </Fade>
     </VStack>
   );
 };
