@@ -14,10 +14,14 @@ export const addedBlocksSlice = createSlice({
   name: 'addedBlocksSlice',
   initialState: { availableId: 1, blocks: [] as BlockSliceType[] },
   reducers: {
-    addBlockToSlice(state, action: PayloadAction<AddBlockInterface>) {
+    addBlockToSlice(
+      state,
+      { payload: { type, content = '' } }: PayloadAction<AddBlockInterface>,
+    ) {
       state.blocks.push({
         id: state.availableId,
-        ...action.payload,
+        type,
+        content,
       });
 
       state.availableId++;

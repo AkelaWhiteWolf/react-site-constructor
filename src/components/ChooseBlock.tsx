@@ -15,7 +15,7 @@ export const ChooseBlock: React.FC<IProps> = ({ type, children }) => {
   const typeText = useMemo(() => getTextWithCapitalLetter(type), [type]);
   const { addBlock } = useConstructorsBlocks();
 
-  const handleAddBlock = () => addBlock({ type, content: '' });
+  const handleAddBlock = () => addBlock({ type });
 
   return (
     <Box

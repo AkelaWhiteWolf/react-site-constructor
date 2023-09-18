@@ -8,7 +8,7 @@ export type BlockSliceType = {
 
 export interface AddBlockInterface {
   type: PossibleBlockType;
-  content: string;
+  content?: string;
 }
 
 export interface UpdateBlockInterface {

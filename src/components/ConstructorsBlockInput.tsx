@@ -17,7 +17,7 @@ export const ConstructorsBlockInput: React.FC<IProps> = ({ id, type }) => {
   );
 
   const isBlockTypeParagraph = type === 'paragraph';
-  const props = {
+  const attributes = {
     defaultValue: currentBlockData?.content,
     onInput: handleUpdateBlock,
     size: isBlockTypeParagraph ? 'xs' : undefined,
@@ -29,5 +29,9 @@ export const ConstructorsBlockInput: React.FC<IProps> = ({ id, type }) => {
     updateBlockContent({ id, content: event.target.value });
   }
 
-  return isBlockTypeParagraph ? <Textarea {...props} /> : <Input {...props} />;
+  return isBlockTypeParagraph ? (
+    <Textarea {...attributes} />
+  ) : (
+    <Input {...attributes} />
+  );
 };
